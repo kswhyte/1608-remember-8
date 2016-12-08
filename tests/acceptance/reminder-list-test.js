@@ -18,14 +18,14 @@ test('viewing the homepage', function(assert) {
   });
 });
 
-test('clicking on an individual item', function(assert) {
+test('clicking on an individual item appends it to the page', function(assert) {
   server.createList('reminder', 5);
 
   visit('/');
-  click('.spec-reminder-item:first');
+  click('.spec-reminder-title');
 
   andThen(function() {
-    assert.equal(currentURL(), '/1');
-    assert.equal(Ember.$('.spec-reminder-item:first').text().trim(), Ember.$('.spec-reminder-title').text().trim());
+    assert.equal(currentURL(), '/reminders/1');
+    assert.equal(Ember.$('.spec-reminder-title:first').text().trim(), Ember.$('.detailed-reminder-title').text().trim());
   });
 });
