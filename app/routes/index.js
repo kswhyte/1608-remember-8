@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   beforeModel(){
-    this.transitionTo('reminders');
+    this._super(...arguments);
+    this.replaceWith('reminders');
   }
 });
