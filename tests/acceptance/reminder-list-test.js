@@ -1,5 +1,3 @@
-/* globals server */
-
 import { test } from 'qunit';
 import moduleForAcceptance from 'remember/tests/helpers/module-for-acceptance';
 
@@ -7,7 +5,7 @@ import Ember from 'ember';
 
 moduleForAcceptance('Acceptance | reminders list');
 
-test('viewing the homepage', function(assert) {
+test('viewing the homepage re-routes to /reminders, rendering 5 reminders', function(assert) {
   server.createList('reminder', 5);
 
   visit('/');
@@ -18,7 +16,7 @@ test('viewing the homepage', function(assert) {
   });
 });
 
-test('clicking on an individual item appends it to the page', function(assert) {
+test('clicking on an individual reminder title appends it to the bottom of the page with more details', function(assert) {
   server.createList('reminder', 5);
 
   visit('/');
