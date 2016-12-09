@@ -1,0 +1,19 @@
+<form class="create-new--form" {{action 'createReminder' on="submit"}}>
+  <label>
+    Title
+    {{input class="add-title-input" value=title placeholder="Title..."}}
+  </label>
+  <label>
+    Date
+    {{input class="add-date-input" value=date placeholder="Date..."}}
+  </label>
+  <label>
+    Notes
+    {{textarea class="add-notes-input" value=notes placeholder="Notes..."}}
+  </label>
+  {{!-- <button class="create-reminder-button">Save</button> --}}
+  {{!-- {{input class="input-submit" type="submit"}} --}}
+  <button class="create-reminder-button" {{action "createReminder"}}>Save</button>
+</form>
+
+{{outlet}}
