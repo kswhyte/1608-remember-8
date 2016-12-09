@@ -1,0 +1,19 @@
+<h2>Create A New Reminder</h2>
+
+<form{{action 'createReminder' on="submit"}}>
+  <label>
+    Title
+    {{input class="add-new-title" value=Title}}
+  </label>
+  <label>
+    Date
+    {{input class="add-new-date" value=Date}}
+  </label>
+  <label>
+    Notes
+    {{input class="add-new-notes" value=Notes}}
+  </label>
+  <button class="add-reminder--submit">Submit</button>
+</form>
+
+{{outlet}}
