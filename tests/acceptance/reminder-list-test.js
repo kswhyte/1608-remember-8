@@ -27,3 +27,13 @@ test('clicking on an individual reminder title appends it to the bottom of the p
     assert.equal(Ember.$('.spec-reminder-title:first').text().trim(), Ember.$('.detailed-reminder-title').text().trim());
   });
 });
+
+test('welcome page should render if there are no reminders in the database', function(assert) {
+
+  visit('/');
+
+  andThen(function() {
+    assert.equal(Ember.$('.welcome-page-headline').length, 1, 'welcome page headline exists');
+    assert.equal(Ember.$('.welcome-page-headline').text(), 'Welcome to Reminders!', 'welcome page headline displays correctly');
+  });
+});
