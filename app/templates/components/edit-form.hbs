@@ -1,0 +1,20 @@
+{{#with model as |reminder|}}
+  <form class="edit-reminder--form" {{action 'editReminder' reminder on="submit"}}>
+    <label>
+      Title
+      {{input class="edit-title-input" value=reminder.title placeholder="Title..."}}
+    </label>
+    <label>
+      Date
+      {{input class="edit-date-input" value=reminder.date placeholder="Date..."}}
+    </label>
+    <label>
+      Notes
+      {{textarea class="edit-notes-input" value=reminder.notes placeholder="Notes..."}}
+    </label>
+    {{input class="input-submit" type="submit"}}
+    {{!-- <button class="reminder-submit-button" {{action "editReminder" reminder on="click"}}>Submit</button> --}}
+  </form>
+{{/with}}
+
+{{outlet}}

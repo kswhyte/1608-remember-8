@@ -1,10 +1,12 @@
 {{outlet}}
 
-<article>
-  <h2 class="detailed-reminder-title">{{model.title}}</h2>
-  <span class="detailed-reminder-date">{{model.date}}</span>
-  <span class="detailed-reminder-notes">{{model.notes}}</span>
-</article>
-{{#link-to 'reminders.reminder.edit'}}
-<button class="edit-reminder-button">Edit Reminder</button>
-{{/link-to}}
+{{!-- {{#with model as |reminder|}} --}}
+  <article>
+    <h2 class="detailed-reminder-title">{{model.title}}</h2>
+    <span class="detailed-reminder-date">{{model.date}}</span>
+    <span class="detailed-reminder-notes">{{model.notes}}</span>
+  </article>
+  {{#link-to 'reminders.edit'}}
+    <button class="edit-reminder-button" {{action 'editReminder' reminder}}>Edit Reminder</button>
+  {{/link-to}}
+{{!-- {{/with}} --}}
