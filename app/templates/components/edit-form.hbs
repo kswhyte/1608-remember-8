@@ -1,20 +1,36 @@
-{{#with model as |reminder|}}
-  <form class="edit-reminder--form" {{action 'editReminder' reminder on="submit"}}>
+{{!-- {{#with model as |reminder|}} --}}
+  <form class="edit-reminder--form">
     <label>
       Title
-      {{input class="edit-title-input" value=reminder.title placeholder="Title..."}}
+      {{input class="edit-title-input" value=model.title placeholder="Title..."}}
     </label>
     <label>
       Date
-      {{input class="edit-date-input" value=reminder.date placeholder="Date..."}}
+      {{input class="edit-date-input" value=model.date placeholder="Date..."}}
     </label>
     <label>
       Notes
-      {{textarea class="edit-notes-input" value=reminder.notes placeholder="Notes..."}}
+      {{textarea class="edit-notes-input" value=model.notes placeholder="Notes..."}}
     </label>
-    {{input class="input-submit" type="submit"}}
-    {{!-- <button class="reminder-submit-button" {{action "editReminder" reminder on="click"}}>Submit</button> --}}
+    {{!-- {{input class="input-submit" type="submit"}} --}}
+    <button class="reminder-submit-button" {{action "editReminder" reminder on="click"}}>Submit</button>
   </form>
-{{/with}}
+{{!-- {{/with}} --}}
 
 {{outlet}}
+
+{{!--
+{{#with model as |reminder| }}
+<form class="create-reminder-form" >
+  <h2>Edit this reminder</h2>
+    {{ input value=reminder.title class="reminder-title-input" placeholder="Insert Title" }} <br>
+    {{ input value=reminder.date type="datetime-local" class="reminder-date-input" placeholder="Insert Date" }} <br>
+    {{ textarea value=reminder.notes class="reminder-notes-input" placeholder="Insert Note" }} <br>
+    <button class="reminder-submit-button" {{action "updateReminder" reminder on="click"}}>Submit</button>
+    <button class="reminder-revert-button"
+      {{action "revertReminder" reminder on="click"}}
+      hidden={{ unless reminder.hasDirtyAttributes 'true'}}>
+      Revert ↺
+    </button>
+</form>
+{{/with}} --}}
