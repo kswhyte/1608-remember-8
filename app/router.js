@@ -8,9 +8,13 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('reminders', function() {
-    this.route('reminder', { path: '/:reminder_id' });
+    this.route('reminder', { path: '/:reminder_id' }, function() {
+      this.route('edit', { path: '/:reminder_id/edit' })
+    })
     this.route('new');
   });
 });
 
 export default Router;
+
+// http://localhost:4200/reminders/4/edit

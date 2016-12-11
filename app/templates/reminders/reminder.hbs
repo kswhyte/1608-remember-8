@@ -5,3 +5,6 @@
   <span class="detailed-reminder-date">{{model.date}}</span>
   <span class="detailed-reminder-notes">{{model.notes}}</span>
 </article>
+{{#link-to 'reminders.reminder.edit'}}
+<button class="edit-reminder-button">Edit Reminder</button>
+{{/link-to}}
