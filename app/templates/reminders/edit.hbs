@@ -1,0 +1,8 @@
+<form class="edit-reminder-form" {{action 'editReminder' model.title model.date model.notes model.id on="submit"}}>
+  {{input class="edit-reminder-title" value=model.title}}
+  {{input class="edit-reminder-date" value=model.date}}
+  {{input class="edit-reminder-notes" value=model.notes}}
+  {{#link-to 'reminders'}}
+    <button>Submit Edits</button>
+  {{/link-to}}
+</form>
