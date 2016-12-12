@@ -3,6 +3,6 @@
   {{bootstrap-datepicker class="edit-reminder-date" value=model.date}}
   {{input class="edit-reminder-notes" value=model.notes}}
   {{#link-to 'reminders.reminder' model}}
-    <button class="submit-edits-button" {{action 'editReminder' model.title model.date model.notes model.id on="submit"}}>Save</button>
+    <button class="submit-edits-button" {{action 'editReminder' model on="submit"}}>Save</button>
   {{/link-to}}
 </form>
