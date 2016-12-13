@@ -8,6 +8,8 @@
     {{bootstrap-datepicker class="edit-reminder-date" value=date placeholder="Choose Date"}}
     {{input class="edit-reminder-notes" value=notes placeholder="Enter Notes"}}
   {{/if}}
+
+  <div class="not-saved-img" hidden={{ unless model.hasDirtyAttributes "true" }}>Changes are UNSAVED</div>
   <button class="submit-edits-button">Save</button>
 </form>
 
