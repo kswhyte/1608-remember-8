@@ -1,0 +1,8 @@
+<form class="edit-reminder-form" {{action 'createReminder' model title date notes id edit reminder rerouteTo on="submit"}}>
+  {{input class="edit-reminder-title" value=title}}
+  {{bootstrap-datepicker class="edit-reminder-date" value=date}}
+  {{input class="edit-reminder-notes" value=notes}}
+  <button class="submit-edits-button">Save</button>
+</form>
+
+{{outlet}}
