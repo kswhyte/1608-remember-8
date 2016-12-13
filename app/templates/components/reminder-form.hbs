@@ -1,4 +1,4 @@
-<form class="create-new--form" {{action 'createReminder' on="submit"}}>
+<!-- <form class="create-new--form" {{action 'createReminder' on="submit"}}>
   <label>
     Title
     {{input class="add-title-input" value=title placeholder="Title..."}}
@@ -12,6 +12,15 @@
     {{textarea class="add-notes-input" value=notes placeholder="Notes..."}}
   </label>
   {{input class="input-submit" type="submit"}}
+</form> -->
+
+<form class="edit-reminder-form">
+  {{input class="edit-reminder-title" value=title}}
+  {{bootstrap-datepicker class="edit-reminder-date" value=date}}
+  {{input class="edit-reminder-notes" value=notes}}
+  {{#link-to 'reminders.reminder' model}}
+    <button class="submit-edits-button" {{action 'editReminder' model on="submit"}}>Save</button>
+  {{/link-to}}
 </form>
 
 {{outlet}}
