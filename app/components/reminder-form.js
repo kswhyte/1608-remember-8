@@ -25,10 +25,10 @@ export default Ember.Component.extend({
         });
       }
     },
-    revert(model, id) {
+    revert(model) {
         if(model.get('hasDirtyAttributes')) {
-          this.get('store').findRecord('reminder', id).then((record) => {
-            record.rollback()
+          this.get('store').findRecord('reminder', model.id).then((reminder) => {
+            reminder.rollbackAttributes()
           });
           model.rollbackAttributes()
         }
