@@ -38,18 +38,6 @@ test('welcome page should render if there are no reminders in the database', fun
   });
 });
 
-test('clicking on the edit button for a reminder will display the submit button for that input field, proving the existence of the input area', function(assert) {
-  server.createList('reminder', 5);
-
-  visit('/');
-  click('.spec-reminder-title');
-  click('.edit-reminder-button');
-
-  andThen(function () {
-    assert.equal(Ember.$('.submit-edits-button').length, 1, 'the submit edits button exists');
-  })
-});
-
 test('clicking "Add a New Reminder" will render a form on the page to add new reminders', function(assert) {
   visit('/reminders/');
   click('.add-reminder-button')
@@ -61,6 +49,18 @@ test('clicking "Add a New Reminder" will render a form on the page to add new re
     assert.equal(find('.edit-reminder-date').length, 1);
     assert.equal(find('.edit-reminder-notes').length, 1);
   });
+});
+
+test('clicking on the edit button for a reminder will display the submit button for that input field, proving the existence of the input area', function(assert) {
+  server.createList('reminder', 5);
+
+  visit('/');
+  click('.spec-reminder-title');
+  click('.edit-reminder-button');
+
+  andThen(function () {
+    assert.equal(Ember.$('.submit-edits-button').length, 1, 'the submit edits button exists');
+  })
 });
 
 test('it properly edits reminders when user enters in new information', function (assert) {
@@ -80,5 +80,36 @@ test('it properly edits reminders when user enters in new information', function
 
   andThen(function () {
     assert.equal(find('.spec-reminder-title:last').text().trim(), 'Sell my car', 'user successfully edits the title of an existing reminder');
+  });
+});
+
+test('it reverts unsaved changes while editing reminders', function (assert) {
+  visit('/');
+  click('.add-reminder-button');
+  fillIn('.edit-reminder-title', 'Pick up kids from school');
+  click('.submit-edits-button');
+  click('.spec-reminder-title');
+
+  andThen(function () {
+    assert.equal(find('.spec-reminder-title:last').text().trim(), 'Pick up kids from school', 'original title shows up');
+  });
+
+  click('.edit-reminder-button');
+  fillIn('.edit-reminder-title', 'Pick up kids from daycare');
+
+  andThen(function () {
+    assert.equal(find('.spec-reminder-title:last').text().trim(), 'Pick up kids from daycare', 'user successfully edits the title of an existing reminder');
+  });
+
+  click('.revert-changes-button');
+
+  andThen(function () {
+    assert.equal(find('.spec-reminder-title:last').text().trim(), 'Pick up kids from school', 'user successfully edits the title of an existing reminder');
+  });
+
+  click('.submit-edits-button');
+
+  andThen(function () {
+    assert.equal(find('.spec-reminder-title:last').text().trim(), 'Pick up kids from school', 'user successfully edits the title of an existing reminder');
   });
 });

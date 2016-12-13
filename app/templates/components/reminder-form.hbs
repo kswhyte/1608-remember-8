@@ -12,3 +12,7 @@
 </form>
 
 {{outlet}}
+
+{{#if edit}}
+  <button class="revert-changes-button" {{action 'revert' model}}>Revert Changes</button>
+{{/if}}
