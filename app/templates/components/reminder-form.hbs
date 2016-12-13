@@ -1,23 +1,8 @@
-<!-- <form class="create-new--form" {{action 'createReminder' on="submit"}}>
-  <label>
-    Title
-    {{input class="add-title-input" value=title placeholder="Title..."}}
-  </label>
-  <label>
-    Date
-    {{input class="add-date-input" value=date placeholder="Date..."}}
-  </label>
-  <label>
-    Notes
-    {{textarea class="add-notes-input" value=notes placeholder="Notes..."}}
-  </label>
-  {{input class="input-submit" type="submit"}}
-</form> -->
-
-<form class="edit-reminder-form" {{action 'createReminder' title date notes on="submit"}}>
+<form class="edit-reminder-form" {{action 'createReminder' title date notes id edit on="submit"}}>
   {{input class="edit-reminder-title" value=title}}
   {{bootstrap-datepicker class="edit-reminder-date" value=date}}
   {{input class="edit-reminder-notes" value=notes}}
+  {{input class="dummy" value=edit}}
   <button class="submit-edits-button">Save</button>
 </form>
 
