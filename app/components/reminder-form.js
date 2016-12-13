@@ -4,13 +4,13 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
 
   actions: {
-    createReminder(title, date, notes, id, edit) {
+    createReminder(model, title, date, notes, id, edit) {
       if (edit) {
         this.get('store').findRecord('reminder', id).then((record) => {
           let newDate = new Date(date);
           record.setProperties({ title, date: newDate, notes, });
           record.save();
-
+          return this.rerouteTo(id);
         });
       } else {
         let reminder = this.getProperties('title', 'date', 'notes');

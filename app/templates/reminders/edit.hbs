@@ -1,3 +1,11 @@
 <h2>Edit Reminder</h2>
 
-{{reminder-form edit=true title=model.title date=model.date notes=model.notes id=model.id}}
+{{reminder-form
+  edit=true
+  model=model
+  title=model.title
+  date=model.date
+  notes=model.notes
+  id=model.id
+  rerouteTo=(action "reroute" reminder)
+}}
