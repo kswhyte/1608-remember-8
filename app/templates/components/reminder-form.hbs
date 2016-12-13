@@ -14,13 +14,11 @@
   {{input class="input-submit" type="submit"}}
 </form> -->
 
-<form class="edit-reminder-form">
+<form class="edit-reminder-form" {{action 'createReminder' title date notes on="submit"}}>
   {{input class="edit-reminder-title" value=title}}
   {{bootstrap-datepicker class="edit-reminder-date" value=date}}
   {{input class="edit-reminder-notes" value=notes}}
-  {{#link-to 'reminders.reminder' model}}
-    <button class="submit-edits-button" {{action 'editReminder' model on="submit"}}>Save</button>
-  {{/link-to}}
+  <button class="submit-edits-button">Save</button>
 </form>
 
 {{outlet}}
