@@ -9,18 +9,18 @@ test('clicking "Add a New Reminder" will render a form on the page to add new re
 
   andThen(function() {
     assert.equal(currentURL(), '/reminders/new');
-    assert.equal(find('.create-new--form').length, 1);
-    assert.equal(find('.add-title-input').length, 1);
-    assert.equal(find('.add-date-input').length, 1);
-    assert.equal(find('.add-notes-input').length, 1);
+    assert.equal(find('.edit-reminder-form').length, 1);
+    assert.equal(find('.edit-reminder-title').length, 1);
+    assert.equal(find('.edit-reminder-date').length, 1);
+    assert.equal(find('.edit-reminder-notes').length, 1);
   });
 });
 
 test('it properly adds an item on form submission', function (assert) {
   visit('/');
   click('.add-reminder-button');
-  fillIn('.add-title-input', 'Buy milk');
-  click('.input-submit');
+  fillIn('.edit-reminder-title', 'Buy milk');
+  click('.submit-edits-button');
 
   andThen(function () {
     assert.equal(find('.spec-reminder-title:last').text().trim(), 'Buy milk', 'creates a new reminder on user entry and submission of data');

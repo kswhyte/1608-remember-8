@@ -1,0 +1,14 @@
+<form class="edit-reminder-form" {{action 'createReminder' model edit rerouteTo on="submit"}}>
+  {{#if edit}}
+    {{input class="edit-reminder-title" value=model.title placeholder="Enter Title"}}
+    {{bootstrap-datepicker class="edit-reminder-date" value=model.date placeholder="Choose Date"}}
+    {{input class="edit-reminder-notes" value=model.notes placeholder="Enter Notes"}}
+  {{else}}
+    {{input class="edit-reminder-title" value=title placeholder="Enter Title"}}
+    {{bootstrap-datepicker class="edit-reminder-date" value=date placeholder="Choose Date"}}
+    {{input class="edit-reminder-notes" value=notes placeholder="Enter Notes"}}
+  {{/if}}
+  <button class="submit-edits-button">Save</button>
+</form>
+
+{{outlet}}
