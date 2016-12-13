@@ -1,20 +1,22 @@
 {{#if model}}
 <ul>
   {{#each model as |reminder|}}
-      <li class="spec-reminder-item">
-        {{#link-to 'reminders.reminder' reminder}}
-          <h2 class="spec-reminder-title">
-              {{reminder.title}}
-          </h2>
-        {{/link-to}}
-        <span class="spec-reminder-date">{{reminder.date}}</span>
-      </li>
-      {{/each}}
+    <li class="spec-reminder-item">
+      {{#link-to 'reminders.reminder' reminder}}
+        <h2 class="spec-reminder-title">
+            {{reminder.title}}
+        </h2>
+      {{/link-to}}
+      <span class="spec-reminder-date">{{reminder.date}}</span>
+    </li>
+    {{/each}}
 </ul>
+
 {{else}}
   <h3 class="welcome-page-headline">Welcome to Reminders!</h3>
   <p class="welcome-page-body-text">We're glad you are here. On this site, you can view and add reminders. To add a new reminder, scroll to the bottom of the page and press the "Add a New Reminder" button. Fields for title, date, and note will then populate. Complete these fields and then press the "Submit" button, which will render the new reminder to the page.</p>
 {{/if}}
+
 {{#link-to 'reminders.new'}}
   <button class="add-reminder-button">Add a New Reminder</button>
 {{/link-to}}

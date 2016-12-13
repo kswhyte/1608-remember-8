@@ -1,0 +1,29 @@
+{{!-- <form class="reminder-form" {{action 'handleReminder' on="submit"}}>
+  <label>
+    Title
+    {{input class="add-title-input" placeholder="Enter a Title..." value=title}}
+  </label>
+  <label>
+    Date
+    {{input class="add-date-input" placeholder="Choose a Date..." value=date}}
+  </label>
+  <label>
+    Notes
+    {{textarea class="add-notes-input" placeholder="Notes..." value=notes}}
+  </label>
+  {{input class="input-submit" type="submit"}}
+</form> --}}
+
+{{!-- {{outlet}} --}}
+
+
+<form class="reminder-form" {{action 'handleReminder' model on="submit"}}>
+  <h2>Title:{{input class="edit-reminder-title" value=title}}</h2>
+  <span>Date:{{bootstrap-datepicker class="edit-reminder-date" value=date}}</span>
+  <span>Notes:{{textarea class="edit-reminder-notes" value=notes}}</span>
+  {{!-- {{#link-to 'reminders.reminder' model}} --}}
+  <button class="form-submit-button" type="submit" value"save">Save</button>
+  {{!-- {{/link-to}} --}}
+</form>
+
+{{outlet}}
