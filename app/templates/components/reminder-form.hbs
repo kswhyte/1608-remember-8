@@ -6,3 +6,8 @@
 </form>
 
 {{outlet}}
+
+{{#if edit}}
+  <button class="revert-changes-button" {{action 'revert' model id on="click"}}>Revert Changes</button>
+  {{!-- <button class="revert-changes-button {{if reminder.hasDirtyAttributes "enabled"}}" {{action 'revert' reminder on="click"}}>Revert</button> --}}
+{{/if}}

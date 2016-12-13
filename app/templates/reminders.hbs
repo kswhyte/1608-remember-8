@@ -1,15 +1,15 @@
 {{#if model}}
 <ul>
   {{#each model as |reminder|}}
-      <li class="spec-reminder-item">
-        {{#link-to 'reminders.reminder' reminder}}
-          <h2 class="spec-reminder-title">
-              {{reminder.title}}
-          </h2>
-        {{/link-to}}
-        <span class="spec-reminder-date">{{reminder.date}}</span>
-      </li>
-      {{/each}}
+    <li class="spec-reminder-item">
+      {{#link-to 'reminders.reminder' reminder}}
+        <h2 class="spec-reminder-title">
+            {{reminder.title}}
+        </h2>
+      {{/link-to}}
+      <span class="spec-reminder-date">{{reminder.date}}</span>
+    </li>
+    {{/each}}
 </ul>
 {{else}}
   <h3 class="welcome-page-headline">Welcome to Reminders!</h3>
