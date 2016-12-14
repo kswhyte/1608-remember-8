@@ -26,9 +26,15 @@ export default Ember.Component.extend({
       }
     },
     revert(model) {
-        if(model.get('hasDirtyAttributes')) {
-          model.rollbackAttributes()
-        }
-      },
-    }
+      if (model.get('hasDirtyAttributes')) {
+        model.rollbackAttributes()
+      }
+    },
+  }
 });
+
+// removeTodo: function () {
+//   var todo = this.get('model');
+//   todo.deleteRecord();
+//   todo.save();
+// }
