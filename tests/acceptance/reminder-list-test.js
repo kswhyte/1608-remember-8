@@ -113,3 +113,28 @@ test('it reverts unsaved changes while editing reminders', function (assert) {
     assert.equal(find('.spec-reminder-title:last').text().trim(), 'Pick up kids from school', 'user successfully edits the title of an existing reminder');
   });
 });
+
+test('it shows a visual cue for when changes are unsaved while editing reminders', function (assert) {
+  visit('/');
+  click('.add-reminder-button');
+  fillIn('.edit-reminder-title', 'Pick up kids from school');
+  click('.submit-edits-button');
+  click('.spec-reminder-title');
+
+  andThen(function () {
+    assert.equal(find('.spec-reminder-title:last').text().trim(), 'Pick up kids from school', 'original title shows up');
+  });
+
+  click('.edit-reminder-button');
+
+  andThen(function () {
+    assert.equal(find('.not-saved-img').is(':visible'), false)
+  });
+
+  fillIn('.edit-reminder-title', 'Pick up kids from daycare');
+
+  andThen(function () {
+    assert.equal(find('.spec-reminder-title:last').text().trim(), 'Pick up kids from daycare', 'user successfully edits the title of an existing reminder');
+    assert.equal(find('.not-saved-img').is(':visible'), true)
+  });
+});
