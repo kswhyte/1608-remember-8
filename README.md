@@ -1,7 +1,10 @@
 # Remember
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Create a notepad-like app in Ember with full CRUD functionality.
+
+Developers will not have commit rights to the master branch. All changes must be made through pull requests that will be reviewed by instructors and merged into master when approved.
+
+Details of collaboration are as follows:
 
 ## Prerequisites
 
