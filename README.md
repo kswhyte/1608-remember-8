@@ -1,4 +1,4 @@
-# Remember
+# RemEMBER
 
 Create a notepad-like app in Ember with full CRUD functionality.
 
