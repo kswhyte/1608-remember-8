@@ -128,13 +128,60 @@ test('it shows a visual cue for when changes are unsaved while editing reminders
   click('.edit-reminder-button');
 
   andThen(function () {
-    assert.equal(find('.not-saved-img').is(':visible'), false)
+    assert.equal(find('.not-saved-warning').is(':visible'), false)
   });
 
   fillIn('.edit-reminder-title', 'Pick up kids from daycare');
 
   andThen(function () {
     assert.equal(find('.spec-reminder-title:last').text().trim(), 'Pick up kids from daycare', 'user successfully edits the title of an existing reminder');
-    assert.equal(find('.not-saved-img').is(':visible'), true)
+    assert.equal(find('.not-saved-warning').is(':visible'), true)
+  });
+});
+
+test('clicking "X", while viewing a detailed reminder, will remove a reminder from the list and reroute to /reminders path', function(assert) {
+  visit('/');
+  click('.add-reminder-button');
+  fillIn('.edit-reminder-title', 'Drop kids off at school');
+  click('.submit-edits-button');
+  click('.spec-reminder-title');
+
+  andThen(function () {
+    assert.equal(find('.spec-reminder-title:last').text().trim(), 'Drop kids off at school', 'user successfully edits the title of an existing reminder');
+    assert.equal(find('.spec-reminder-title').length, 1);
+    assert.equal(find('.spec-reminder-date').length, 1);
+    // assert.equal(find('.detailed-reminder-notes').length, 1);
+  });
+
+  click('.remove-indiv-reminder-button')
+
+  andThen(function() {
+    assert.equal(currentURL(), '/reminders');
+    assert.equal(find('.spec-reminder-title').length, 0);
+    assert.equal(find('.spec-reminder-date').length, 0);
+  });
+});
+
+test('clicking "X", from the reminders list, will remove a reminder from the list and reroute to /reminders path', function(assert) {
+  visit('/');
+  click('.add-reminder-button');
+  fillIn('.edit-reminder-title', 'Get an oil change');
+  click('.submit-edits-button');
+  click('.spec-reminder-title');
+
+  andThen(function () {
+    assert.equal(find('.spec-reminder-title:last').text().trim(), 'Get an oil change', 'original title shows up');
+    assert.equal(find('.detailed-reminder-title').length, 1);
+    assert.equal(find('.detailed-reminder-date').length, 1);
+    assert.equal(find('.detailed-reminder-notes').length, 1);
+  });
+
+  click('.remove-detailed-reminder-button')
+
+  andThen(function() {
+    assert.equal(currentURL(), '/reminders');
+    assert.equal(find('.detailed-reminder-title').length, 0);
+    assert.equal(find('.detailed-reminder-date').length, 0);
+    assert.equal(find('.detailed-reminder-notes').length, 0);
   });
 });

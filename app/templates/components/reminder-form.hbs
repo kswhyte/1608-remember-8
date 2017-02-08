@@ -9,7 +9,7 @@
     {{input class="edit-reminder-notes" value=notes placeholder="Enter Notes"}}
   {{/if}}
 
-  <div class="not-saved-img" hidden={{ unless model.hasDirtyAttributes "true" }}>Changes are UNSAVED</div>
+  <div class="not-saved-warning" hidden={{ unless model.hasDirtyAttributes "true" }}>Changes are UNSAVED</div>
   <button class="submit-edits-button">Save</button>
 </form>
 

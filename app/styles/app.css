@@ -4,8 +4,91 @@
 
 li {
   text-decoration: none;
+  list-style-type: none;
 }
 
-.not-saved-img {
-   background: url("/assets/images/not-saved.png");
+.spec-reminder-item {
+  background-color: rgb(195, 245, 210);
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.spec-reminder-date {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.remove-indiv-reminder-button, .remove-detailed-reminder-button {
+  background-color: rgb(195, 245, 210);
+  border: none;
+  color: rgb(255, 0, 0);
+  font-size: 24px;
+}
+
+.remove-indiv-reminder-button:hover, .remove-detailed-reminder-button:hover {
+  color: rgb(236, 156, 131);
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(148, 161, 231);
+}
+
+a:visited {
+  rgb(177, 205, 244);
+}
+
+.edit-reminder-form {
+  background-color: rgb(195, 245, 210);
+  border: 1px solid black;
+}
+
+.edit-reminer-title, .edit-reminder-date, .edit-reminder-notes {
+  border: 1px dotted rgb(127, 118, 129);
+  margin: 10px auto;
+}
+
+.master-container {
+  text-align: center;
+}
+
+.add-reminder-button, .edit-reminder-button, .submit-edits-button, .revert-changes-button {
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 3px rgb(204, 191, 199);
+  font-size: 20px;
+}
+
+.add-reminder-button:hover, .edit-reminder-button:hover, .submit-edits-button:hover, .revert-changes-button:hover {
+  background-color: rgb(236, 240, 225);
+  cursor: pointer;
+}
+
+.reminder-container {
+  background-color: rgb(195, 245, 210);
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 20px auto;
+}
+
+.detailed-reminder-date {
+  display: block;
+  font-weight: 600;
+}
+
+.detailed-reminder-notes {
+  display: block;
+  margin: 10px auto;
+}
+
+.not-saved-warning {
+  color: rgb(255, 0, 0);
+  margin: 10px auto;
+}
+
+.revert-changes-button {
+  margin: 20px auto;
 }
