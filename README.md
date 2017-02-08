@@ -1,7 +1,18 @@
-# Remember
+# RemEMBER
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+The idea behind this app was to create a notepad-like app in Ember with full CRUD functionality. On top of the fact that Ember was a entirely new framework to work with, developers were not to have commit rights to the master branch. 
+
+Thus, all changes had to be made through pull requests that were reviewed by instructors and merged into master when approved. Aside from learning a new JS framework, this project was largely focused on dialing development github workflow, ensuring a smooth process of communicating what new features are made or worked on in all future projects. Some examples include, structuring a commit message properly, pulling down master a master version of the app as it is officially approved, and cherry-picking old commits to merge into the latest version of the app. I have never been so confident with and grateful for how github works. This has been a great lesson in learning how real projects are managed and seeing which methods of working through issues and features works most seamlessly.
+
+---
+
+##Goal: 
+
+Create a notepad-like app in Ember with full CRUD functionality.
+
+Developers will not have commit rights to the master branch. All changes must be made through pull requests that will be reviewed by instructors and merged into master when approved.
+
+Details of collaboration are as follows:
 
 ## Prerequisites
 
