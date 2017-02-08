@@ -32,9 +32,3 @@ export default Ember.Component.extend({
     },
   }
 });
-
-// removeTodo: function () {
-//   var todo = this.get('model');
-//   todo.deleteRecord();
-//   todo.save();
-// }
