@@ -6,7 +6,7 @@ Thus, all changes had to be made through pull requests that were reviewed by ins
 
 ---
 
-##Goal: 
+## Goal: 
 
 Create a notepad-like app in Ember with full CRUD functionality.
 
